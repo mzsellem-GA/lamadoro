@@ -14,7 +14,7 @@ export default function App() {
             <>
                <NavBar user={user} setUser={setUser} />
                <Routes>
-                  <Route path="/" element={<TaskListPage user={user} />} />
+                  <Route path="/tasks" element={<TaskListPage user={user} />} />
                </Routes>
             </>
          ) : (

@@ -12,7 +12,7 @@ export default function NavBar({ user, setUser }) {
 
    return (
       <nav>
-         <Link to="/">Tasks</Link>
+         <Link to="/tasks">Tasks</Link>
          &nbsp;&nbsp;
          <Link to="" onClick={handleLogOut}>
             Log Out
