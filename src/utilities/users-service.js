@@ -51,9 +51,3 @@ export function getToken() {
 export function logOut() {
     localStorage.removeItem('token')
 }
-
-export function checkToken() {
-  // we can't forget how to use .then with promises
-  return usersApi.checkToken()
-    .then(dateStr => new Date(dateStr))
-}
