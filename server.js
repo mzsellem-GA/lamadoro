@@ -18,7 +18,7 @@ app.use(express.json());
 
  // Middleware to check and verify a JWT and 
  // assign the user object from the JWT to req.user
- app.use(require('./config/checkToken'))
+ //app.use(require('./config/checkToken'))
 
  // Configure to use port 3001 instead of 3000 during
  // development to avoid collision with React's dev server
