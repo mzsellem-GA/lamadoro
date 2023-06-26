@@ -1,6 +1,7 @@
 import { useState } from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import "./AuthPage.css";
 
 export default function AuthPage({ setUser }) {
    const [userPref, setUserPref] = useState("signup");
@@ -14,13 +15,13 @@ export default function AuthPage({ setUser }) {
 
    return (
       <div>
-         <h1>AuthPage</h1>
+         <h1>Welcome to Lamadoro</h1>
          {userPref === "signup" ? (
             <SignUpForm setUser={setUser} />
          ) : (
             <LoginForm setUser={setUser} />
          )}
-         <button onClick={handlePref}>
+         <button className="ternary-button" onClick={handlePref}>
             {userPref === "signup"
                ? "Already a member? Log In"
                : "Need an account? Sign Up"}

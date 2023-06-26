@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { login } from "../../utilities/users-service";
+import "./LoginForm.css";
 
 export default function LoginForm({ setUser }) {
    const [credentials, setCredentials] = useState({ email: "", password: "" });
@@ -30,7 +31,10 @@ export default function LoginForm({ setUser }) {
    }
 
    return (
-      <div>
+      <div className="signup-form-parent-container">
+         <div className="logo-in-signup">
+            <img className="logo" src="" alt="LOGO" />
+         </div>
          <div className="form-container">
             <form autoComplete="off" onSubmit={handleSubmit}>
                <label>Email</label>
