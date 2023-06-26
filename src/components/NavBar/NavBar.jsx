@@ -12,13 +12,11 @@ export default function NavBar({ user, setUser }) {
 
    return (
       <nav>
-         <Link to="/tasks/new">New Task</Link>
-         &nbsp;&nbsp;<span>Welcome, {user.name}</span>
-         &nbsp;&nbsp;
+   
          <Link to="" onClick={handleLogOut}>
             Log Out
          </Link>
-         <h3>Hello {user.name}!</h3>
+         <h3>Welcome {user.name}!</h3>
       </nav>
    );
 }

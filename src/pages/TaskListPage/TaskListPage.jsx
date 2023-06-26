@@ -30,7 +30,7 @@ export default function TaskListPage({ user }) {
 
    async function handleSubmit(event) {
       event.preventDefault();
-      // console.log({ user });
+      console.log({ user });
       const newTask = {
          text: newTaskText.text,
          user: user._id,
