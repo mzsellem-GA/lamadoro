@@ -7,7 +7,7 @@ const taskSchema = new Schema({
         ref: 'User',
         required: true
     },
-    name: String
+    text: String
 }, {
     timestamps: true
 })
