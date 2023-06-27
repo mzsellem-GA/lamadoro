@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import TaskDetail from "../TaskDetail/TaskDetail";
 
 export default function TaskCard({ task }) {
    return (
@@ -7,6 +8,7 @@ export default function TaskCard({ task }) {
          <Link to={`/tasks/${task.text}`}>
             <button>Add Timer</button>
          </Link>
+         <TaskDetail task={task} />
       </div>
    );
 }
