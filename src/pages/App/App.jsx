@@ -7,11 +7,12 @@ import TaskDetailPage from "../TaskDetailPage/TaskDetailPage";
 import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
 import { getUser } from "../../utilities/users-service";
-import * as quotesApi from "../../utilities/quotes-api"
+import * as quotesApi from "../../utilities/quotes-api";
 
 export default function App() {
    const [user, setUser] = useState(getUser());
    const [quotes, setQuotes] = useState(null);
+   const [quote, setQuote] = useState(null);
    console.log("quotes in app", quotes);
 
    useEffect(function () {
@@ -19,10 +20,19 @@ export default function App() {
          const quotes = await quotesApi.getAll();
          setQuotes(quotes);
          console.log("quotes in getQuotes before calling getQuotes", quotes);
+         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+         setQuote(randomQuote);
       }
       getQuotes();
       console.log("quotes in getQuotes after calling getQuotes", quotes);
    }, []);
+
+   function handleNewQuote() {
+      if (quotes) {
+         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+         setQuote(randomQuote);
+      }
+   }
 
    return (
       <main className="App">
@@ -31,7 +41,15 @@ export default function App() {
                <NavBar user={user} setUser={setUser} />
                <Routes>
                   <Route path="/tasks" element={<TaskListPage user={user} />} />
-                  <Route path="/detail" element={<TaskDetailPage quotes={quotes}/>} />
+                  <Route
+                     path="/detail"
+                     element={
+                        <TaskDetailPage
+                           quote={quote}
+                           handleNewQuote={handleNewQuote}
+                        />
+                     }
+                  />
                </Routes>
             </>
          ) : (

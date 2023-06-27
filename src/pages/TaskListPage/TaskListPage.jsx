@@ -14,6 +14,18 @@ export default function TaskListPage({ user }) {
       }
       getTasks();
    }, []);
+
+   function removeTaskFromState(taskid) {
+      const foundTask = tasks.findIndex((task) => {
+         return task._id === taskid;
+      });
+      const copyTask = [...tasks];
+      //for update this will be different (no splice)- copyTask[foundTask] = {text: <"userinput">, user: userid}
+      copyTask.splice(foundTask, 1);
+      setTasks(copyTask);
+      // console.log(copyTask);
+   }
+
    return (
       <div>
          <h1>Tasks</h1>
@@ -24,7 +36,10 @@ export default function TaskListPage({ user }) {
             <ul>
                {tasks.map((task, index) => (
                   <li key={index}>
-                     <TaskCard task={task} />
+                     <TaskCard
+                        task={task}
+                        removeTaskFromState={removeTaskFromState}
+                     />
                   </li>
                ))}
             </ul>
