@@ -14,7 +14,21 @@ async function index(req, res) {
     res.json(tasks)
 }
 
+function taskDelete(req, res) {
+    Task.findById(req.params.id)
+        .then(task => {
+            if (!task) throw new Error('No document is found matching that id')
+            return task
+        })
+        .then(task => {
+            return task.deleteOne()
+        })
+        .then(() => res.json('Task removed'))
+        .catch(error => res.json(error))
+}
+
 module.exports = {
     createTask,
-    index
+    index,
+    taskDelete
 }
