@@ -26,6 +26,18 @@ export default function TaskListPage({ user }) {
       // console.log(copyTask);
    }
 
+   function updateTaskFromState(taskid) {
+      console.log(taskid);
+      const foundTask = tasks.findIndex((task) => {
+         return task._id === taskid;
+      });
+      const copyTask = [...tasks];
+      //for update this will be different (no splice)- copyTask[foundTask] = {text: <"userinput">, user: userid}
+      copyTask[foundTask] = { text: foundTask.text, user: user._id };
+      setTasks(copyTask);
+      // console.log(copyTask);
+   }
+
    return (
       <div>
          <h1>Tasks</h1>
