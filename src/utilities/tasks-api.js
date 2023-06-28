@@ -8,3 +8,4 @@ export async function createTask(taskData) {
 export async function getAll() {
     return sendRequest(BASE_URL);
 }
+

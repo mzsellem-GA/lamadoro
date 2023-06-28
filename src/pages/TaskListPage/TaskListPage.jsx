@@ -39,6 +39,7 @@ export default function TaskListPage({ user }) {
                      <TaskCard
                         task={task}
                         removeTaskFromState={removeTaskFromState}
+                        setTasks={setTasks}
                      />
                   </li>
                ))}
