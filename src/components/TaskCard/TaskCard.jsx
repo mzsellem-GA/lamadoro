@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { getToken } from "../../utilities/users-service";
 
-export default function TaskCard({ task, removeTaskFromState }) {
+export default function TaskCard({
+   task,
+   removeTaskFromState,
+   updateTaskFromState,
+}) {
+   // const [task, setTask] = useState(task);
    const token = getToken();
    const [error, setError] = useState(null);
    const handleDelete = async () => {
@@ -26,9 +31,26 @@ export default function TaskCard({ task, removeTaskFromState }) {
       }
    };
 
+   function handleUpdate(event) {
+      console.log("task in handleChange in TaskCard", task);
+      console.log("event in handleChange in TaskCard", event.target.value);
+      task.text = event.target.value;
+      updateTaskFromState(task._id);
+      console.log("task.text in handleChange", task.text);
+   }
+
    return (
       <div>
          <h1>{task.text}</h1>
+         <form>
+            <input
+               type="text"
+               name="text"
+               value={task?.text}
+               onChange={handleUpdate}
+            ></input>
+         </form>
+         {/* <button onClick={() => handleSubmit()}>Update</button> */}
          <button onClick={() => handleDelete()}>X</button>
          {error && <p>{error}</p>}
          <Link to="/detail" state={{ task }}>

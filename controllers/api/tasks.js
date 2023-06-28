@@ -16,7 +16,21 @@ async function index(req, res) {
     res.json(tasks)
 }
 
-async function taskDelete(req, res) {
+async function updateTask(req, res) {
+    try {
+      const task = await Task.findById(req.params.id);
+      if (!task) throw new Error('No document is found matching that id');
+      
+      task.text = req.body.text;
+      const updatedTask = await task.save();
+      
+      res.json(updatedTask);
+    } catch (error) {
+      res.json(error);
+    }
+  }
+
+async function deleteTask(req, res) {
     try {
       const task = await Task.findById(req.params.id);
       if (!task) throw new Error('No document is found matching that id');
@@ -33,5 +47,6 @@ async function taskDelete(req, res) {
 module.exports = {
     createTask,
     index,
-    taskDelete
+    deleteTask,
+    updateTask
 }
