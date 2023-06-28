@@ -39,3 +39,6 @@
 div#root, body {
   background-color: white;
 }
+li{
+  text-decoration: none;
+}

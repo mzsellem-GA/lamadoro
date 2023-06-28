@@ -4,8 +4,8 @@ const tasksCtrl = require('../../controllers/api/tasks')
 
 router.post('/', tasksCtrl.createTask)
 router.get('/', tasksCtrl.index)
-router.patch('/:id', tasksCtrl.updateTask)
-router.delete('/:id', tasksCtrl.deleteTask)
+router.delete('/:id', tasksCtrl.taskDelete)
+router.patch('/:id', tasksCtrl.taskUpdate)
 
 
 module.exports = router
