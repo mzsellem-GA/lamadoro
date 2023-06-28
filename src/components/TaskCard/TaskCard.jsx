@@ -31,10 +31,36 @@ export default function TaskCard({
       }
    };
 
+   async function handleSubmit() {
+      // event.preventDefault();
+      console.log("task in handle submit", task);
+      try {
+         const response = await fetch(`/api/tasks/${task._id}`, {
+            method: "PATCH",
+            headers: {
+               Authorization: `Bearer ${token}`,
+               Accept: "application/json",
+               "Content-Type": "application/json",
+            },
+            body: JSON.stringify(task),
+         });
+         console.log("response in handle submit", response);
+         if (!response.ok) {
+            throw new Error("Request failed");
+         }
+
+         const updatedTask = await response.json();
+         console.log("task was changed", updatedTask);
+      } catch (error) {
+         setError(error.message);
+      }
+   }
+
    function handleUpdate(event) {
       console.log("task in handleChange in TaskCard", task);
       console.log("event in handleChange in TaskCard", event.target.value);
-      task.text = event.target.value;
+      task = { ...task, text: event.target.value };
+      // task.text = event.target.value;
       updateTaskFromState(task._id);
       console.log("task.text in handleChange", task.text);
    }
@@ -50,7 +76,7 @@ export default function TaskCard({
                onChange={handleUpdate}
             ></input>
          </form>
-         {/* <button onClick={() => handleSubmit()}>Update</button> */}
+         <button onClick={() => handleSubmit()}>Update</button>
          <button onClick={() => handleDelete()}>X</button>
          {error && <p>{error}</p>}
          <Link to="/detail" state={{ task }}>

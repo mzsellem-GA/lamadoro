@@ -18,6 +18,7 @@ async function index(req, res) {
 
 async function updateTask(req, res) {
     try {
+        console.log('req in updateTask', req)
       const task = await Task.findById(req.params.id);
       if (!task) throw new Error('No document is found matching that id');
       

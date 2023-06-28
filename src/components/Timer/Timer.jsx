@@ -1,29 +1,43 @@
 import React, { useEffect, useState } from "react";
-export default function App() {
-   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
+export default function Timer({ task }) {
+   console.log("task in timer", task);
+   const [secondsLeft, setSecondsLeft] = useState(3);
    const [timer, setTimer] = useState();
+   const [playDing, setPlayDing] = useState(false);
+
    const start = () => {
-      const timer = setInterval(() => {
-         setSecondsLeft((secondsLeft) => secondsLeft - 1);
-         if (secondsLeft === 0) {
-            clearInterval(timer);
-         }
+      const newTimer = setInterval(() => {
+         setSecondsLeft((prevSecondsLeft) => prevSecondsLeft - 1);
       }, 1000);
-      setTimer(timer);
+      setTimer(newTimer);
+   };
+   const pause = () => {
+      clearInterval(timer);
+      setTimer(null);
    };
    useEffect(() => {
       if (secondsLeft === 0) {
          clearInterval(timer);
+         setPlayDing(true);
       }
    }, [secondsLeft, timer]);
+   useEffect(() => {
+      if (playDing) {
+         const audio = document.getElementById("dingAudio");
+         audio.play();
+      }
+   }, [playDing]);
+
    useEffect(() => {
       return () => clearInterval(timer);
    }, [timer]);
    return (
       <div className="App">
-         <h1>Pomodoro Timer</h1>
-         <button onClick={start}>start</button>
-         <div>{secondsLeft} seconds left</div>
+         <h1>{task}</h1>
+         <div>{secondsLeft}</div>
+         <audio id="dingAudio" src="ding/ding.mp3"></audio>
+         <button onClick={start}>Start</button>
+         <button onClick={pause}>Pause</button>
       </div>
    );
 }
