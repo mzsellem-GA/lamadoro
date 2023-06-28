@@ -22,21 +22,12 @@ export default function TaskCard({ task, setTasks, removeTaskFromState }) {
       });
    }
 
-   const handleDelete = async () => {
+   const handleDelete = async (taskId) => {
       try {
-         const response = await fetch(`/api/tasks/${task._id}`, {
-            method: "DELETE",
-            headers: {
-               Authorization: `Bearer ${token}`,
-               Accept: "application/json",
-               "Content-Type": "application/json",
-            },
-         });
-         if (response.ok) {
-            removeTaskFromState(task._id);
-         } else {
-            const error = await response.json();
-            setError(error.message);
+         const response = await tasksApi.deleteTask(taskId);
+
+         if (response) {
+            removeTaskFromState(taskId);
          }
       } catch (error) {
          setError(error.message);
@@ -78,7 +69,7 @@ export default function TaskCard({ task, setTasks, removeTaskFromState }) {
          <input type="text" name="text" onChange={handleChange} />
 
          <button onClick={() => handleSubmit(task._id)}>Update</button>
-         <button onClick={() => handleDelete()}>X</button>
+         <button onClick={() => handleDelete(task._id)}>X</button>
          {error && <p>{error}</p>}
          <Link to="/detail" state={{ task }}>
             <button>Add Timer</button>
