@@ -36,9 +36,14 @@
     transform: rotate(360deg);
   }
 }
-div#root, body {
+body {
   background-color: white;
 }
+
+div#root {
+  background-color: rgb(26, 38, 39);
+}
+
 li{
   text-decoration: none;
 }

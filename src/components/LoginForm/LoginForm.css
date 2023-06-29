@@ -1,16 +1,8 @@
-/* .signup-form-parent-container {
+
+
+.login-form-parent-container {
     display: grid;
+    place-items: center;
+    justify-self: center;
+    align-self: center;
 }
-
-.form-container {
-    display: flex;
-    width: 400px;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-in-signup {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */

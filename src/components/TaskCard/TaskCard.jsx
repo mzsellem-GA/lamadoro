@@ -44,7 +44,7 @@ export default function TaskCard({ task, setTasks, removeTaskFromState }) {
    //     }
    //   };
 
-   const handleSubmit = async (id) => {
+   const handleUpdate = async (id) => {
       try {
          const res = await fetch(`/api/tasks/${id}`, {
             method: "PATCH",
@@ -55,6 +55,7 @@ export default function TaskCard({ task, setTasks, removeTaskFromState }) {
             },
             body: JSON.stringify(updatedText),
          });
+         
          const task = await res.json();
          console.log("task was changed", task);
          setTasks(await tasksApi.getAll());
@@ -68,7 +69,7 @@ export default function TaskCard({ task, setTasks, removeTaskFromState }) {
          <h1>{task.text}</h1>
          <input type="text" name="text" onChange={handleChange} />
 
-         <button onClick={() => handleSubmit(task._id)}>Update</button>
+         <button onClick={() => handleUpdate(task._id)}>Update</button>
          <button onClick={() => handleDelete(task._id)}>X</button>
          {error && <p>{error}</p>}
          <Link to="/detail" state={{ task }}>

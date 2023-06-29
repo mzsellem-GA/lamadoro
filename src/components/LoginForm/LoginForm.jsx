@@ -31,7 +31,7 @@ export default function LoginForm({ setUser }) {
    }
 
    return (
-      <div className="signup-form-parent-container">
+      <div className="login-form-parent-container">
          <div className="logo-in-signup">
             <img className="logo" src="" alt="LOGO" />
          </div>
@@ -53,7 +53,7 @@ export default function LoginForm({ setUser }) {
                   onChange={handleChange}
                   required
                />
-               <button type="submit">Log In</button>
+               <button type="submit" className="button">Log In</button>
             </form>
          </div>
          <p className="error-message">&nbsp;{error}</p>

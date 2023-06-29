@@ -17,7 +17,6 @@ export default function NavBar({ user, setUser }) {
          <Link to="" onClick={handleLogOut}>
             Log Out
          </Link>
-         <h3>Welcome {user.name}!</h3>
       </nav>
    );
 }

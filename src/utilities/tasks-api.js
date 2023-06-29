@@ -8,6 +8,10 @@ export async function deleteTask(taskId) {
     return sendRequest(`${BASE_URL}/${taskId}`, 'DELETE');
 }
 
+// export async function updateTask(taskId) {
+//     return sendRequest(`${BASE_URL}/${taskId}`, 'PATCH');
+// }
+
 export async function getAll() {
     return sendRequest(BASE_URL);
 }
