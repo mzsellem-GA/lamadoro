@@ -14,6 +14,8 @@ export default function NavBar({ user, setUser }) {
       <nav>
          <Link to="/tasks">Tasks</Link>
          &nbsp;&nbsp;
+         <Link to="/about">What is lamadoro?</Link>
+         &nbsp;&nbsp;
          <Link to="" onClick={handleLogOut}>
             Log Out
          </Link>

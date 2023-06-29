@@ -4,6 +4,7 @@ import "./App.css";
 import TaskListPage from "../TaskListPage/TaskListPage";
 import TaskDetailPage from "../TaskDetailPage/TaskDetailPage";
 import AuthPage from "../AuthPage/AuthPage";
+import AboutPage from "../AboutPage/AboutPage";
 import NavBar from "../../components/NavBar/NavBar";
 import { getUser } from "../../utilities/users-service";
 import * as quotesApi from "../../utilities/quotes-api";
@@ -33,6 +34,7 @@ export default function App() {
                <NavBar user={user} setUser={setUser} />
                <Routes>
                   <Route path="/tasks" element={<TaskListPage user={user} />} />
+                  <Route path="/about" element={<AboutPage />} />
                   <Route
                      path="/detail"
                      element={<TaskDetailPage quotes={quotes} />}

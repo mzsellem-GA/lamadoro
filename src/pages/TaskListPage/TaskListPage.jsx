@@ -5,38 +5,19 @@ import TaskCard from "../../components/TaskCard/TaskCard";
 
 export default function TaskListPage({ user }) {
    const [tasks, setTasks] = useState([]);
+   const [updated, setUpdated] = useState(false);
 
-   useEffect(function () {
-      async function getTasks() {
-         const tasks = await tasksAPI.getAll();
-         console.log("tasks in getTasks", tasks);
-         setTasks(tasks);
-      }
-      getTasks();
-   }, []);
-
-   function removeTaskFromState(taskid) {
-      const foundTask = tasks.findIndex((task) => {
-         return task._id === taskid;
-      });
-      const copyTask = [...tasks];
-      //for update this will be different (no splice)- copyTask[foundTask] = {text: <"userinput">, user: userid}
-      copyTask.splice(foundTask, 1);
-      setTasks(copyTask);
-      // console.log(copyTask);
-   }
-
-   function updateTaskFromState(taskid) {
-      console.log(taskid);
-      const foundTask = tasks.findIndex((task) => {
-         return task._id === taskid;
-      });
-      const copyTask = [...tasks];
-      //for update this will be different (no splice)- copyTask[foundTask] = {text: <"userinput">, user: userid}
-      copyTask[foundTask] = { text: foundTask.text, user: user._id };
-      setTasks(copyTask);
-      // console.log(copyTask);
-   }
+   useEffect(
+      function () {
+         async function getTasks() {
+            const tasks = await tasksAPI.getAll();
+            console.log("tasks in getTasks", tasks);
+            setTasks(tasks);
+         }
+         getTasks();
+      },
+      [updated]
+   );
 
    return (
       <div>
@@ -50,8 +31,9 @@ export default function TaskListPage({ user }) {
                   <li key={index}>
                      <TaskCard
                         task={task}
-                        removeTaskFromState={removeTaskFromState}
                         setTasks={setTasks}
+                        setUpdated={setUpdated}
+                        updated={updated}
                      />
                   </li>
                ))}
