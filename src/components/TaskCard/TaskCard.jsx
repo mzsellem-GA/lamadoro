@@ -48,7 +48,7 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
          <h1>{task.text}</h1>
          <input type="text" name="text" onChange={handleChange} />
 
-         <button onClick={() => handleUpdate(task._id)}>Update</button>
+         <button onClick={() => handleSubmit(task._id)}>Update</button>
          <button onClick={() => handleDelete(task._id)}>X</button>
          {error && <p>{error}</p>}
          <Link to="/detail" state={{ task }}>

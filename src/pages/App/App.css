@@ -1,6 +1,10 @@
 .App {
+  display: grid;
   text-align: center;
+  place-items: center;
+  background-color: #172627;
 }
+
 
 .App-logo {
   height: 40vmin;
@@ -14,7 +18,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -37,13 +40,10 @@
   }
 }
 body {
-  background-color: white;
-}
-
-div#root {
-  background-color: rgb(26, 38, 39);
+  background-color: #172627;
 }
 
 li{
   text-decoration: none;
 }
+

@@ -33,7 +33,7 @@ export default function LoginForm({ setUser }) {
    return (
       <div className="login-form-parent-container">
          <div className="logo-in-signup">
-            <img className="logo" src="" alt="LOGO" />
+            {/* <img src="lamadoro-logo.png"></img> */}
          </div>
          <div className="form-container">
             <form autoComplete="off" onSubmit={handleSubmit}>
@@ -53,7 +53,9 @@ export default function LoginForm({ setUser }) {
                   onChange={handleChange}
                   required
                />
-               <button type="submit" className="button">Log In</button>
+               <button type="submit" className="button">
+                  Log In
+               </button>
             </form>
          </div>
          <p className="error-message">&nbsp;{error}</p>

@@ -1,8 +1,9 @@
-
-
 .login-form-parent-container {
     display: grid;
     place-items: center;
-    justify-self: center;
-    align-self: center;
+}
+
+.logo-in-signup {
+    height: 50px;
+    width: 25px;
 }

@@ -22,7 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--tan-4);
-  padding: 2vmin;
+  /* padding: 2vmin; */
   height: 100vh;
 }
 
@@ -33,6 +33,7 @@ code {
 
 #root {
   height: 100%;
+  background-color: #172627;
 }
 
 .align-ctr {
@@ -123,7 +124,7 @@ button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: #172627;;
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
