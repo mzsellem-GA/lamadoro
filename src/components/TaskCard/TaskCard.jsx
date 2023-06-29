@@ -3,14 +3,10 @@ import { useState } from "react";
 import { getToken } from "../../utilities/users-service";
 import * as tasksApi from "../../utilities/tasks-api";
 
-export default function TaskCard({ task, setTasks, removeTaskFromState }) {
+export default function TaskCard({ task, setTasks, setUpdated, updated }) {
    const token = getToken();
    const [error, setError] = useState(null);
    const [updatedText, setUpdatedText] = useState("");
-
-   //   const handleChange = (e) => {
-   //     setUpdatedText(e.target.value);
-   //   };
 
    function handleChange(event) {
       setUpdatedText((prevText) => {
@@ -27,38 +23,21 @@ export default function TaskCard({ task, setTasks, removeTaskFromState }) {
          const response = await tasksApi.deleteTask(taskId);
 
          if (response) {
-            removeTaskFromState(taskId);
+            setUpdated(!updated);
          }
       } catch (error) {
          setError(error.message);
       }
    };
 
-   //   const handleUpdate = async (taskId, taskData) => {
-   //     try {
-   //       const response = await tasksApi.updateTask(taskId, taskData)
-   //       setTasks(response)
-
-   //     } catch (error) {
-   //       setError(error.message);
-   //     }
-   //   };
-
-   const handleUpdate = async (id) => {
+   const handleSubmit = async (id) => {
       try {
-         const res = await fetch(`/api/tasks/${id}`, {
-            method: "PATCH",
-            headers: {
-               Authorization: `Bearer ${token}`,
-               Accept: "application/json",
-               "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedText),
-         });
-         
-         const task = await res.json();
-         console.log("task was changed", task);
-         setTasks(await tasksApi.getAll());
+         const response = await tasksApi.updateTask(id, updatedText);
+         // console.log("task was changed", task);
+         // console.log("response in handleSubmit", response);
+         if (response) {
+            setUpdated(!updated);
+         }
       } catch (error) {
          setError(error.message);
       }
