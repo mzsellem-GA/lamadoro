@@ -58,7 +58,7 @@ export default function LoginForm({ setUser, userPref, handlePref }) {
                </button>
             </form>
             <div>
-               <button className="ternary-button" onClick={handlePref}>
+               <button className="ternary-button-login" onClick={handlePref}>
                   {userPref === "signup"
                      ? "Already a member? Log In"
                      : "Need an account? Sign Up"}

@@ -107,7 +107,7 @@ export default class SignUpForm extends Component {
                   </form>
                   <div>
                      <button
-                        className="ternary-button"
+                        className="ternary-button-signup"
                         onClick={this.props.handlePref}
                      >
                         {this.props.userPref === "signup"
