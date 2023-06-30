@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import * as userService from "../../utilities/users-service";
+import Nav from "react-bootstrap/Nav"
 
 export default function NavBar({ user, setUser }) {
    // console.log("this is setUser in nav", setUser);
@@ -11,14 +12,27 @@ export default function NavBar({ user, setUser }) {
    }
 
    return (
-      <nav>
-         <Link to="/tasks">Tasks</Link>
-         &nbsp;&nbsp;
-         <Link to="/about">What is lamadoro?</Link>
-         &nbsp;&nbsp;
-         <Link to="" onClick={handleLogOut}>
-            Log Out
-         </Link>
-      </nav>
+      <>
+         <Nav className="navbar navbar-fixed-top" variant="underline">
+            <Nav.Item>
+               <img className="navbar-lamadoro-logo w-25 h-50" src="lamadoro-logo.png" />
+               </Nav.Item>
+            <Nav.Item>
+               <Link className="tasks-in-nav text-white fw-bold" to="/tasks">
+                  Tasks
+               </Link>
+            </Nav.Item>
+            <Nav.Item>
+               <Link className="about-in-nav text-white fw-bold" to="/about">
+                  What is lamadoro?
+               </Link>
+            </Nav.Item>
+            <Nav.Item>
+               <Link className="logout-in-nav text-white fw-bold" to="" onClick={handleLogOut}>
+                  Log Out
+               </Link>
+            </Nav.Item>
+         </Nav>
+      </>
    );
 }
