@@ -4,7 +4,7 @@ import { useState } from "react";
 import { login } from "../../utilities/users-service";
 import "./LoginForm.css";
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser, userPref, handlePref }) {
    const [credentials, setCredentials] = useState({ email: "", password: "" });
    const [error, setError] = useState("");
 
@@ -32,8 +32,8 @@ export default function LoginForm({ setUser }) {
 
    return (
       <div className="login-form-parent-container">
-         <div className="logo-in-signup">
-            {/* <img src="lamadoro-logo.png"></img> */}
+         <div className="login-logo-div">
+            <img className="login-lamadoro-logo" src="lamadoro-logo.png"></img>
          </div>
          <div className="form-container">
             <form autoComplete="off" onSubmit={handleSubmit}>
@@ -57,6 +57,13 @@ export default function LoginForm({ setUser }) {
                   Log In
                </button>
             </form>
+            <div>
+               <button className="ternary-button" onClick={handlePref}>
+                  {userPref === "signup"
+                     ? "Already a member? Log In"
+                     : "Need an account? Sign Up"}
+               </button>
+            </div>
          </div>
          <p className="error-message">&nbsp;{error}</p>
       </div>

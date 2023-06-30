@@ -16,17 +16,10 @@ export default function AuthPage({ setUser }) {
    return (
       <div>
          {userPref === "signup" ? (
-            <SignUpForm setUser={setUser} />
+            <SignUpForm setUser={setUser} userPref={userPref} handlePref={handlePref}/>
          ) : (
-            <LoginForm setUser={setUser} />
+            <LoginForm setUser={setUser} userPref={userPref} handlePref={handlePref}/>
          )}
-         <div className="ternary-button-div">
-            <button className="ternary-button" onClick={handlePref}>
-               {userPref === "signup"
-                  ? "Already a member? Log In"
-                  : "Need an account? Sign Up"}
-            </button>
-         </div>
       </div>
    );
 }
