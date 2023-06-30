@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
+import "./SignUpForm.css";
 
 // we need to export our class components just like always
 // one of the key distinctions between classes and function compoenents is the extends keyword
@@ -55,48 +56,56 @@ export default class SignUpForm extends Component {
    render() {
       const disable = this.state.password !== this.state.confirm;
       return (
-         <div>
-            <div className="logo-in-signup">
-               <img className="logo" src="" alt="LOGO" />
-            </div>
-            <div className="form-container">
-               <form autoComplete="off" onSubmit={this.handleSubmit}>
-                  <label>Name</label>
-                  <input
-                     type="text"
-                     name="name"
-                     value={this.state.name}
-                     onChange={this.handleChange}
-                     required
-                  />
-                  <label>Email</label>
-                  <input
-                     type="email"
-                     name="email"
-                     value={this.state.email}
-                     onChange={this.handleChange}
-                     required
-                  />
-                  <label>Password</label>
-                  <input
-                     type="password"
-                     name="password"
-                     value={this.state.password}
-                     onChange={this.handleChange}
-                     required
-                  />
-                  <label>Confirm</label>
-                  <input
-                     type="password"
-                     name="confirm"
-                     value={this.state.confirm}
-                     onChange={this.handleChange}
-                     required
-                  />
-                  <button type="submit" disabled={disable}>
-                     SIGN UP
-                  </button>
-               </form>
+         <div className="return-container">
+            <div className="signup-parent">
+               <img
+                  className="signup-lamadoro-logo"
+                  src="lamadoro-logo.png"
+                  alt="LOGO"
+               />
+               <div className="form-container">
+                  <form autoComplete="off" onSubmit={this.handleSubmit}>
+                     <label>Name</label>
+                     <input
+                        type="text"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                        required
+                     />
+                     <label>Email</label>
+                     <input
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                        required
+                     />
+                     <label>Password</label>
+                     <input
+                        type="password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                        required
+                     />
+                     <label>Confirm</label>
+                     <input
+                        type="password"
+                        name="confirm"
+                        value={this.state.confirm}
+                        onChange={this.handleChange}
+                        required
+                     />
+                     <button
+                        className="button-in-signup"
+                        type="submit"
+                        disabled={disable}
+                     >
+                        SIGN UP
+                     </button>
+                  </form>
+               </div>
             </div>
             <p className="error-message">&nbsp;{this.state.error}</p>
          </div>

@@ -3,7 +3,17 @@
     place-items: center;
 }
 
-.logo-in-signup {
+.login-logo-div {
     height: 50px;
     width: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10%;
+}
+
+.login-lamadoro-logo {
+    width: 300px;
+    height: 300px;
+    transform: translateY(-20%);
 }

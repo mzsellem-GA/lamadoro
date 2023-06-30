@@ -1,0 +1,24 @@
+/* .ternary-button {
+    display: flex;
+    background-color: #20CD8D;
+    color: white;
+    border: none;
+    align-items: flex-end;
+    transform: translate(-289%, 100%);
+    border-radius: 20px;
+    width: 200px;
+    height: 35px;
+  }
+  
+  .ternary-button-div {
+    display: flex;
+    width: 250px;
+  } */
+
+  .ternary-button {
+    background-color: #61ca92;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    display: flex;
+  }

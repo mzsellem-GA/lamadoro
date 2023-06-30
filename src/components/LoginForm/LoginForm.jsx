@@ -32,8 +32,8 @@ export default function LoginForm({ setUser }) {
 
    return (
       <div className="login-form-parent-container">
-         <div className="logo-in-signup">
-            {/* <img src="lamadoro-logo.png"></img> */}
+         <div className="login-logo-div">
+            <img className="login-lamadoro-logo" src="lamadoro-logo.png"></img>
          </div>
          <div className="form-container">
             <form autoComplete="off" onSubmit={handleSubmit}>
