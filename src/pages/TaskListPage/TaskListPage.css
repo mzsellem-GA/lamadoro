@@ -23,3 +23,8 @@ ul {
     color: var(--white);
     background-color: #172627
 }
+
+
+.task-list-div {
+    width:700px;
+}

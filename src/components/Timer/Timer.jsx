@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import "./Timer.css"
 
 export default function Timer({ quotes }) {
    let { state } = useLocation();
@@ -70,8 +71,8 @@ export default function Timer({ quotes }) {
          )}
             <div className="tasks-container rounded-3 w-100 d-flex justify-content-center align-itmes-center h-100">
                <div className="col-8 p-2">
-                  <div>
-                     <img src="lamadoro-logo.png" alt="image" className="w-100 h-100"/>
+                  <div className="timer-logo-div">
+                     <img src="lamadoro-logo.png" alt="image" className="w-50 h-100 timer-logo"/>
                   </div>
                   <div className="d-flex w-100 box-center">
                      <div className="rounded-3 py-2 w-25 timer_part">{secondsLeft}</div>
