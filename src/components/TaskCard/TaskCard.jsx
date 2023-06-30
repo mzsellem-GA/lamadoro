@@ -58,7 +58,6 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
                <input type="text" name="text" onChange={handleChange} value={task.text}/>
                <button onClick={() => handleSubmit(task._id)}>Update</button>
             </div>
-            
          </div>
          <div className="w-50 d-flex align-items-center justify-content-end">
             <Link to="/detail" state={{ task }}>
@@ -73,8 +72,6 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
             {error && <p>{error}</p>}
             
          </div>
-         
-         
       </div>
    );
 }

@@ -14,8 +14,8 @@ export default function NavBar({ user, setUser }) {
    return (
       <>
          <Nav className="navbar navbar-fixed-top" variant="underline">
-            <Nav.Item>
-               <img className="navbar-lamadoro-logo w-25 h-50" src="lamadoro-logo.png" />
+            <Nav.Item className="navbar">
+               <img className="navbar-lamadoro-logo w-25 h-5 me-2" src="lamadoro-logo.png" />
                </Nav.Item>
             <Nav.Item>
                <Link className="tasks-in-nav text-white fw-bold" to="/tasks">
