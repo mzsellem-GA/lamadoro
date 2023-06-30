@@ -58,12 +58,10 @@ export default class SignUpForm extends Component {
       return (
          <div className="return-container">
             <div className="signup-parent">
-               <img
-                  className="signup-lamadoro-logo"
-                  src="lamadoro-logo.png"
-                  alt="LOGO"
-               />
-               <div className="form-container">
+            <div className="signUp-logo-div">
+               <img className="signUp-lamadoro-logo" src="lamadoro-logo.png"></img>
+            </div>
+               <div className="form-container col-3 mx-auto">
                   <form autoComplete="off" onSubmit={this.handleSubmit}>
                      <label>Name</label>
                      <input
@@ -105,6 +103,16 @@ export default class SignUpForm extends Component {
                         SIGN UP
                      </button>
                   </form>
+                  <div>
+                     <button
+                        className="ternary-button-signup"
+                        onClick={this.props.handlePref}
+                     >
+                        {this.props.userPref === "signup"
+                           ? "Already a member? Log In"
+                           : "Need an account? Sign Up"}
+                     </button>
+                  </div>
                </div>
             </div>
             <p className="error-message">&nbsp;{this.state.error}</p>

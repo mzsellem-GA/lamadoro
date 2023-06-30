@@ -1,0 +1,25 @@
+.box-center{
+    justify-content: center;
+    align-items: center;
+}
+.tasks-container{
+    
+    background-color: #20CD8D;
+}
+ul {
+    list-style: none;
+ }
+.tasks-container ul{
+    flex-direction: column;
+}
+.update_btn, .delete_btn{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.task-top{
+    border-left:3px solid #20CD8D;
+}
+.timer_part{
+    color: var(--white);
+    background-color: #172627
+}
