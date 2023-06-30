@@ -55,20 +55,37 @@ export default function Timer({ quotes }) {
    }, [timer]);
 
    return (
-      <div className="App">
-         <h1>{state.task.text}</h1>
-         <div>{secondsLeft}</div>
-         {randomQuote && (
+      <div className="w-100 h-100 d-flex justify-content-center align-items-center App">
+         <div className="tasks-title col-10">
+            <div className="my-4 task-top text-white justify-content-start d-flex w-100">
+               <h1 className="mx-4">{state.task.text}</h1>
+            </div>
+            {randomQuote && (
             <div>
-               <h2>Random Quote:</h2>
+               <h2 className="text-white">Random Quote:</h2>
                <p>
                   {randomQuote.text} - {randomQuote.byName}
                </p>
             </div>
          )}
-         <button onClick={start}>Start</button>
-         <button onClick={reset}>Reset</button>
-         <button onClick={pause}>Pause</button>
+            <div className="tasks-container rounded-3 w-100 d-flex justify-content-center align-itmes-center h-100">
+               <div className="col-8 p-2">
+                  <div>
+                     <img src="lamadoro-logo.png" alt="image" className="w-100 h-100"/>
+                  </div>
+                  <div className="d-flex w-100 box-center">
+                     <div className="rounded-3 py-2 w-25 timer_part">{secondsLeft}</div>
+                  </div>
+                  <div className="d-flex w-100 box-center my-2">
+                     <button className="mx-3 rounded-3 border-0 px-4" onClick={start}>Start</button>
+                     <button className="mx-3 rounded-3 border-0 px-4" onClick={reset}>Reset</button>
+                     <button className="mx-3 rounded-3 border-0 px-4" onClick={pause}>Pause</button>
+                  </div>
+                  
+               </div>
+               
+            </div>
+         </div>
       </div>
    );
 }
