@@ -37,6 +37,11 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
          // console.log("task was changed", task);
          // console.log("response in handleSubmit", response);
          if (response) {
+            task.text = response.text;
+            document.getElementById('task_text').classList.add('d-flex');
+            document.getElementById('update_input').classList.remove('d-flex');
+            document.getElementById('update_input').classList.add('d-none');
+            document.getElementById('task_text').classList.remove('d-none');
             setUpdated(!updated);
          }
       } catch (error) {
@@ -55,7 +60,7 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
          <div className="w-50 d-flex">
             <h5 className="d-flex box-center mx-2 text-white" id="task_text">{task.text}</h5>
             <div className="d-none" id="update_input" >
-               <input type="text" name="text" onChange={handleChange} value={task.text}/>
+               <input type="text" name="text" onChange={handleChange} />
                <button onClick={() => handleSubmit(task._id)}>Update</button>
             </div>
          </div>

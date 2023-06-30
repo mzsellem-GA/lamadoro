@@ -14,7 +14,7 @@ export default function AuthPage({ setUser }) {
    }
 
    return (
-      <div>
+      <div className="w-100">
          {userPref === "signup" ? (
             <SignUpForm
                setUser={setUser}

@@ -1,0 +1,11 @@
+.login-logo-div{
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.login-lamadoro-logo{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

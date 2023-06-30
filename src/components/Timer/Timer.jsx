@@ -57,7 +57,7 @@ export default function Timer({ quotes }) {
 
    return (
       <div className="w-100 h-100 d-flex justify-content-center align-items-center App">
-         <div className="tasks-title col-10">
+         <div className="tasks-title col-8">
             <div className="my-4 task-top text-white justify-content-start d-flex w-100">
                <h1 className="mx-4">{state.task.text}</h1>
             </div>

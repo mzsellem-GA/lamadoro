@@ -35,7 +35,7 @@ export default function LoginForm({ setUser, userPref, handlePref }) {
          <div className="login-logo-div">
             <img className="login-lamadoro-logo" src="lamadoro-logo.png"></img>
          </div>
-         <div className="form-container">
+         <div className="form-container col-3 mx-auto">
             <form autoComplete="off" onSubmit={handleSubmit}>
                <label>Email</label>
                <input
