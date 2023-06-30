@@ -16,9 +16,17 @@ export default function AuthPage({ setUser }) {
    return (
       <div>
          {userPref === "signup" ? (
-            <SignUpForm setUser={setUser} userPref={userPref} handlePref={handlePref}/>
+            <SignUpForm
+               setUser={setUser}
+               userPref={userPref}
+               handlePref={handlePref}
+            />
          ) : (
-            <LoginForm setUser={setUser} userPref={userPref} handlePref={handlePref}/>
+            <LoginForm
+               setUser={setUser}
+               userPref={userPref}
+               handlePref={handlePref}
+            />
          )}
       </div>
    );
