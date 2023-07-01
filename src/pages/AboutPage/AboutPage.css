@@ -1,3 +1,28 @@
-h1, p {
+p, ul, li {
     color: white;
+    font-weight: bold;
+}
+
+h1, h2 {
+    color: #172627;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    max-width: 750px;
+    text-align: left;
+    margin: 40px;
+    padding: 20px;
+}
+
+.bg {
+    background-color: #1dcd8d;
+    border-radius: 20px;
+    width: 850px;
 }
