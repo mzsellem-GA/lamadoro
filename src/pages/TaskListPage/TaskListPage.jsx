@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import * as tasksAPI from "../../utilities/tasks-api";
 import TaskForm from "../../components/TaskForm/TaskForm";
 import TaskCard from "../../components/TaskCard/TaskCard";
-import "./TaskListPage.css"
+import "./TaskListPage.css";
 
 export default function TaskListPage({ user }) {
    const [tasks, setTasks] = useState([]);
@@ -24,10 +24,10 @@ export default function TaskListPage({ user }) {
       <div className="w-100 h-100 d-flex justify-content-center align-items-center">
          <div className="tasks-title col-7 w-52">
             <div className="my-4 task-top text-white justify-content-start d-flex w-100">
-               <h1 className="mx-4">Tasks</h1>
+               <h1 className="mx-4 text-white">Tasks</h1>
             </div>
-            
-            <div className="tasks-container rounded-3 d-flex justify-content-center align-itmes-center h-100">
+
+            <div className="tasks-container d-flex justify-content-center align-itmes-center h-100">
                <div className="col-8 p-2">
                   <TaskForm user={user} tasks={tasks} setTasks={setTasks} />
                   {tasks.length === 0 ? (
@@ -47,10 +47,8 @@ export default function TaskListPage({ user }) {
                      </ul>
                   )}
                </div>
-               
             </div>
          </div>
       </div>
-      
    );
 }

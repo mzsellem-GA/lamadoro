@@ -3,7 +3,7 @@
     align-items: center;
 }
 .tasks-container{
-    
+    border-radius: 20px;
     background-color: #20CD8D;
 }
 ul {
