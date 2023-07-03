@@ -8,10 +8,10 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
    const token = getToken();
    const [error, setError] = useState(null);
    const [updatedText, setUpdatedText] = useState("");
+   const [isEditing, setIsEditing] = useState(false);
 
    function handleChange(event) {
       setUpdatedText((prevText) => {
-         console.log(event);
          return {
             ...prevText,
             [event.target.name]: event.target.value,
@@ -34,37 +34,32 @@ export default function TaskCard({ task, setTasks, setUpdated, updated }) {
    const handleSubmit = async (id) => {
       try {
          const response = await tasksApi.updateTask(id, updatedText);
-         // console.log("task was changed", task);
-         // console.log("response in handleSubmit", response);
          if (response) {
             task.text = response.text;
-            document.getElementById("task_text").classList.add("d-flex");
-            document.getElementById("update_input").classList.remove("d-flex");
-            document.getElementById("update_input").classList.add("d-none");
-            document.getElementById("task_text").classList.remove("d-none");
             setUpdated(!updated);
+            setIsEditing(!isEditing);
          }
       } catch (error) {
          setError(error.message);
       }
    };
    const updateChange = () => {
-      document.getElementById("task_text").classList.add("d-none");
-      document.getElementById("update_input").classList.remove("d-none");
-      document.getElementById("update_input").classList.add("d-flex");
-      document.getElementById("task_text").classList.remove("d-flex");
+      setIsEditing(!isEditing);
    };
 
    return (
       <div className=" my-1 mx-auto d-flex justify-content-between align-items-center mx-auto">
          <div className="w-50 d-flex">
-            <h5 className="d-flex box-center mx-2 text-white" id="task_text">
-               {task.text}
-            </h5>
-            <div className="d-none" id="update_input">
-               <input type="text" name="text" onChange={handleChange} />
-               <button onClick={() => handleSubmit(task._id)}>Update</button>
-            </div>
+            {isEditing ? (
+               <div id="update_input">
+                  <input type="text" name="text" onChange={handleChange} />
+                  <button onClick={() => handleSubmit(task._id)}>Update</button>
+               </div>
+            ) : (
+               <h5 className="d-flex box-center mx-2 text-white" id="task_text">
+                  {task.text}
+               </h5>
+            )}
          </div>
          <div className="w-50 d-flex align-items-center justify-content-end">
             <Link to="/detail" state={{ task }}>
