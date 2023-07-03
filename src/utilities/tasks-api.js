@@ -1,5 +1,5 @@
 import sendRequest from "./send-request"
-const BASE_URL = '/api/tasks'
+const BASE_URL = 'https://lamadoro-api.onrender.com/api/tasks'
 
 export async function createTask(taskData) {
     return sendRequest(BASE_URL, 'POST', taskData);
