@@ -27,7 +27,7 @@ export default function TaskListPage({ user }) {
                <h1 className="mx-4 text-white">Tasks</h1>
             </div>
 
-            <div className="tasks-container d-flex justify-content-center align-itmes-center h-100">
+            <div className="tasks-container d-flex justify-content-center align-itmes-center h-100 w-52">
                <div className="col-8 p-2">
                   <TaskForm user={user} tasks={tasks} setTasks={setTasks} />
                   {tasks.length === 0 ? (
