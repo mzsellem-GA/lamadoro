@@ -10,10 +10,7 @@ export default function NavBar({ user, setUser }) {
 
    return (
       <>
-         <Nav
-            className="navbar navbar-fixed-top w-75 mx-auto"
-            variant="underline"
-         >
+         <Nav className="navbar navbar-fixed-top w-80 mx-auto">
             <Nav.Item className="w-50">
                <div className="w-50">
                   <img
@@ -25,7 +22,7 @@ export default function NavBar({ user, setUser }) {
             </Nav.Item>
             <div className="nav-items-wrapper d-flex justify-content-around w-25">
                <Nav.Item>
-                  <Link className="tasks-in-nav text-white fw-bold" to="/">
+                  <Link className="home-in-nav text-white fw-bold" to="/">
                      Home
                   </Link>
                </Nav.Item>
