@@ -13,14 +13,14 @@ export default function NavBar({ user, setUser }) {
       <>
          <Nav className="navbar navbar-fixed-top w-100 mx-auto px-5">
             <div className="nav-items-wrapper d-flex justify-content-around w-100 text align-items-center">
-               <Nav.Item className="w-50">
+               <Nav.Item className="w-25">
                   <img
-                     className="navbar-lamadoro-logo w-25"
+                     className="navbar-lamadoro-logo w-50"
                      src="lamadoro-logo.png"
                      alt="Logo"
                   />
                </Nav.Item>
-               <Nav.Item>
+               <Nav.Item className="w-25">
                   <Link
                      className="home-in-nav text-white fw-bold text-decoration-none"
                      to="/"
@@ -28,7 +28,7 @@ export default function NavBar({ user, setUser }) {
                      Home
                   </Link>
                </Nav.Item>
-               <Nav.Item>
+               <Nav.Item className="w-25">
                   <Link
                      className="tasks-in-nav text-white fw-bold text-decoration-none"
                      to="/tasks"
@@ -36,7 +36,7 @@ export default function NavBar({ user, setUser }) {
                      Tasks
                   </Link>
                </Nav.Item>
-               <Nav.Item>
+               <Nav.Item className="w-25">
                   <Link
                      className="about-in-nav text-white fw-bold text-decoration-none"
                      to="/about"
@@ -44,7 +44,7 @@ export default function NavBar({ user, setUser }) {
                      What is lamadoro?
                   </Link>
                </Nav.Item>
-               <Nav.Item>
+               <Nav.Item className="w-25">
                   <Link
                      className="logout-in-nav text-white fw-bold text-decoration-none"
                      to=""
