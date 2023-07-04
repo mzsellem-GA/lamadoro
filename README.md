@@ -32,7 +32,7 @@ https://trello.com/b/j0ll7ZRu/lamadoro
 
 Check out our pomodoro app:
 
-https://lamadoro-api.onrender.com
+https://lamadoro.onrender.com
 
 ## Next Steps:
 
