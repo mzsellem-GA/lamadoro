@@ -1,5 +1,3 @@
-//********************** check code
-
 import { useState } from "react";
 import { login } from "../../utilities/users-service";
 import "./LoginForm.css";
@@ -9,10 +7,6 @@ export default function LoginForm({ setUser, userPref, handlePref }) {
    const [error, setError] = useState("");
 
    function handleChange(evt) {
-      //   this.setState({
-      //      [evt.target.name]: evt.target.value,
-      //      error: "",
-      //   });
       setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
       setError("");
    }
@@ -22,10 +16,8 @@ export default function LoginForm({ setUser, userPref, handlePref }) {
 
       try {
          const user = await login(credentials);
-         //  console.log("credentials in login", credentials);
          setUser(user);
       } catch {
-         //  this.setState({ error: "Sign Up Failed - Try Again" });
          setError("Log In Failed - Try Again");
       }
    }

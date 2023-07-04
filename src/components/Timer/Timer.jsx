@@ -10,7 +10,7 @@ export default function Timer({ quotes }) {
    const [randomQuote, setRandomQuote] = useState(null);
 
    const reset = () => {
-      setSecondsLeft(3); // Replace 3 with your desired initial value
+      setSecondsLeft(3);
    };
 
    const start = () => {
@@ -57,7 +57,7 @@ export default function Timer({ quotes }) {
 
    return (
       <div className="w-100 h-100 d-flex justify-content-center align-items-center App">
-         <div className="tasks-title col-8">
+         <div className="tasks-title col-7 w-80">
             <div className="my-4 task-top text-white justify-content-start d-flex w-100">
                <h1 className="mx-4 text-white">{state.task.text}</h1>
             </div>
@@ -69,7 +69,7 @@ export default function Timer({ quotes }) {
                </div>
             )}
             <div className="tasks-container rounded-3 w-100 d-flex justify-content-center align-itmes-center h-100">
-               <div className="col-8 p-2">
+               <div className="col-8 p-2 w-50">
                   <div className="timer-logo-div">
                      <img
                         src="lamadoro-logo.png"

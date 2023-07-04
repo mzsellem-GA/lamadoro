@@ -13,18 +13,15 @@ export default function App() {
    const [user, setUser] = useState(getUser());
    const [quotes, setQuotes] = useState(null);
    const [quote, setQuote] = useState(null);
-   // console.log("quotes in app", quotes);
 
    useEffect(function () {
       async function getQuotes() {
          const quotes = await quotesApi.getAll();
          setQuotes(quotes);
-         // console.log("quotes in getQuotes before calling getQuotes", quotes);
          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
          setQuote(randomQuote);
       }
       getQuotes();
-      // console.log("quotes in getQuotes after calling getQuotes", quotes);
    }, []);
 
    return (
@@ -33,7 +30,7 @@ export default function App() {
             <>
                <NavBar user={user} setUser={setUser} />
                <Routes>
-                  <Route path="/tasks" element={<TaskListPage user={user} />} />
+                  <Route path="/" element={<TaskListPage user={user} />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route
                      path="/detail"

@@ -3,37 +3,35 @@ import * as userService from "../../utilities/users-service";
 import Nav from "react-bootstrap/Nav";
 
 export default function NavBar({ user, setUser }) {
-   // console.log("this is setUser in nav", setUser);
    function handleLogOut() {
-      //delete the token from storage
       userService.logOut();
-      //set the user to null
       setUser(null);
    }
 
    return (
       <>
          <Nav className="navbar navbar-fixed-top" variant="underline">
-            <Nav.Item className=" d-flex flex-grow-1 w-25">
-               <div className="w-50">
+            <Nav.Item className="d-flex flex-grow-1">
+               <div className="w-25">
                   <img
-                     className="navbar-lamadoro-logo w-25"
+                     className="navbar-lamadoro-logo w-50"
                      src="lamadoro-logo.png"
+                     alt="Logo"
                   />
                </div>
             </Nav.Item>
-            <div className="nav-items-wrapper d-flex flex-end">
-               <Nav.Item style={{ margin: "0 10px" }}>
-                  <Link className="tasks-in-nav text-white fw-bold" to="/tasks">
+            <div className="nav-items-wrapper ml-auto">
+               <Nav.Item className="mr-3">
+                  <Link className="tasks-in-nav text-white fw-bold" to="/">
                      Tasks
                   </Link>
                </Nav.Item>
-               <Nav.Item style={{ margin: "0 10px" }}>
+               <Nav.Item className="mr-3">
                   <Link className="about-in-nav text-white fw-bold" to="/about">
                      What is lamadoro?
                   </Link>
                </Nav.Item>
-               <Nav.Item style={{ margin: "0 10px" }}>
+               <Nav.Item className="mr-3">
                   <Link
                      className="logout-in-nav text-white fw-bold"
                      to=""

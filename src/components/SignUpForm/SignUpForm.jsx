@@ -2,13 +2,7 @@ import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
 import "./SignUpForm.css";
 
-// we need to export our class components just like always
-// one of the key distinctions between classes and function compoenents is the extends keyword
-// This tells our code "get all the food stuff from Component, let me make it work for my purposes"
 export default class SignUpForm extends Component {
-   // Class components handle state differently than functions
-   // instead of hooks, we use the class field called state
-
    state = {
       name: "",
       email: "",
@@ -16,14 +10,8 @@ export default class SignUpForm extends Component {
       confirm: "",
       error: "",
    };
-
-   //handleChange method -> handles user input in the form
-   //looks at the name of the input field, and updates the value
-   //associated with that input field in state
    handleChange = (evt) => {
-      //we'll look at the event, gather information from the event, update state
       this.setState({
-         // we can use a specific syntax, to dynamically gather data from the form
          [evt.target.name]: evt.target.value,
          error: "",
       });
@@ -33,34 +21,26 @@ export default class SignUpForm extends Component {
       evt.preventDefault();
 
       try {
-         //this is where we will run our api call
-         // we'll start our api call process with a copy of the state object
          const formData = { ...this.state };
          delete formData.error;
          delete formData.confirm;
-         //another way to handle this is with destructuring:
-         // const { name, email, password } = this.state;
-         // const formData = { name, emal, password };
          const user = await signUp(formData);
          this.props.setUser(user);
       } catch {
-         // handle our errors
          this.setState({ error: "Sign Up Failed - Try Again" });
       }
-      // this was to make this function "do" something for testing our component
-      // alert(JSON.stringify(this.state));
    };
-
-   // Every single class component NEEDS a render method
-   // This render method tells our app what this component returns
    render() {
       const disable = this.state.password !== this.state.confirm;
       return (
          <div className="return-container">
             <div className="signup-parent">
-            <div className="signUp-logo-div">
-               <img className="signUp-lamadoro-logo" src="lamadoro-logo.png"></img>
-            </div>
+               <div className="signUp-logo-div">
+                  <img
+                     className="signUp-lamadoro-logo"
+                     src="lamadoro-logo.png"
+                  ></img>
+               </div>
                <div className="form-container col-3 mx-auto">
                   <form autoComplete="off" onSubmit={this.handleSubmit}>
                      <label>Name</label>

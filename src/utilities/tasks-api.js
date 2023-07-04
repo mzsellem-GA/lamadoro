@@ -11,10 +11,6 @@ export async function updateTask(taskId, taskData) {
     return sendRequest(`${BASE_URL}/${taskId}`, 'PATCH', taskData);
 }
 
-// export async function updateTask(taskId) {
-//     return sendRequest(`${BASE_URL}/${taskId}`, 'PATCH');
-// }
-
 export async function getAll() {
     return sendRequest(BASE_URL);
 }
