@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import "./Timer.css";
 
 export default function Timer({ quotes }) {
    let { state } = useLocation();
@@ -7,6 +8,7 @@ export default function Timer({ quotes }) {
    const [timer, setTimer] = useState();
    const [playDing, setPlayDing] = useState(false);
    const [randomQuote, setRandomQuote] = useState(null);
+   const imgRef = useRef(null);
 
    const reset = () => {
       setSecondsLeft(3);
@@ -17,6 +19,13 @@ export default function Timer({ quotes }) {
          setSecondsLeft((prevSecondsLeft) => prevSecondsLeft - 1);
       }, 1000);
       setTimer(newTimer);
+      if (imgRef.current) {
+         imgRef.current.style.transform = "none";
+         setTimeout(() => {
+            imgRef.current.style.transition = "transform 2s linear";
+            imgRef.current.style.transform = "rotate(360deg)";
+         }, 0);
+      }
    };
 
    const pause = () => {
@@ -74,6 +83,7 @@ export default function Timer({ quotes }) {
                         src="lamadoro-logo.png"
                         alt="logo"
                         className="w-50 h-100 timer-logo"
+                        ref={imgRef}
                      />
                   </div>
                   <div className="d-flex w-100 box-center">
