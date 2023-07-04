@@ -12,12 +12,14 @@ export default function TaskListPage({ user }) {
       function () {
          async function getTasks() {
             const tasks = await tasksAPI.getAll();
-            console.log("tasks in getTasks", tasks);
-            setTasks(tasks);
+            const newShowingTasks = tasks.filter(
+               (task) => task.user === user._id
+            );
+            setTasks(newShowingTasks);
          }
          getTasks();
       },
-      [updated]
+      [updated, user._id]
    );
 
    return (
@@ -31,7 +33,7 @@ export default function TaskListPage({ user }) {
                <div className="col-9 p-2">
                   <TaskForm user={user} tasks={tasks} setTasks={setTasks} />
                   {tasks.length === 0 ? (
-                     <p></p>
+                     <p>No Tasks Yet</p>
                   ) : (
                      <ul className="d-flex box-center w-100">
                         {tasks.map((task, index) => (

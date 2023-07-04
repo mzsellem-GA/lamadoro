@@ -4,7 +4,7 @@ import "./HomePage.css";
 export default function HomePage() {
    return (
       <>
-         <div class="d-flex justify-content-center align-items-center vh-100">
+         <div class="d-flex justify-content-center align-items-center vh-50">
             <div class="custom-height bg d-flex flex-column justify-content-center align-items-center">
                <h1 class="text-center mb-3">Welcome To Lamadoro</h1>
                <div>
