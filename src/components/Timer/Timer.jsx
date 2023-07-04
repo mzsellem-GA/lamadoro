@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import "./Timer.css";
 
 export default function Timer({ quotes }) {
    let { state } = useLocation();
@@ -68,7 +67,7 @@ export default function Timer({ quotes }) {
                   </p>
                </div>
             )}
-            <div className="tasks-container rounded-3 w-100 d-flex justify-content-center align-itmes-center h-100">
+            <div className="tasks-container rounded-6 w-100 d-flex justify-content-center align-itmes-center h-100">
                <div className="col-8 p-2 w-50">
                   <div className="timer-logo-div">
                      <img
