@@ -48,7 +48,7 @@ export default function Timer({ quotes }) {
 
          setRandomQuote(newRandomQuote);
       }
-   }, [secondsLeft]);
+   }, [secondsLeft, quotes]);
 
    useEffect(() => {
       return () => clearInterval(timer);
@@ -72,7 +72,7 @@ export default function Timer({ quotes }) {
                   <div className="timer-logo-div">
                      <img
                         src="lamadoro-logo.png"
-                        alt="image"
+                        alt="logo"
                         className="w-50 h-100 timer-logo"
                      />
                   </div>
