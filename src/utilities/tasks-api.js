@@ -12,5 +12,6 @@ export async function updateTask(taskId, taskData) {
 }
 
 export async function getAll() {
-    return sendRequest(BASE_URL);
+    console.log("tasks-api lol")
+    return sendRequest(BASE_URL, 'GET');
 }

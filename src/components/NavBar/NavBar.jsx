@@ -22,7 +22,7 @@ export default function NavBar({ user, setUser }) {
             </Nav.Item>
             <div className="nav-items-wrapper ml-auto">
                <Nav.Item className="mr-3">
-                  <Link className="tasks-in-nav text-white fw-bold" to="/">
+                  <Link className="tasks-in-nav text-white fw-bold" to="/tasks">
                      Tasks
                   </Link>
                </Nav.Item>
