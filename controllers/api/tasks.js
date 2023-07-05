@@ -10,7 +10,6 @@ async function createTask(req, res) {
 }
 
 async function index(req, res) {
-  console.log("this is index function")
     const tasks = await Task.find()
     res.json(tasks)
 }
