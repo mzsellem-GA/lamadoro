@@ -9,9 +9,11 @@ export default function Timer({ quotes }) {
    const [playDing, setPlayDing] = useState(false);
    const [randomQuote, setRandomQuote] = useState(null);
    const imgRef = useRef(null);
+   const [quoteVisible, setQuoteVisible] = useState(false);
 
    const reset = () => {
       setSecondsLeft(3);
+      setQuoteVisible(false); // Hide the quote on reset
    };
 
    const start = () => {
@@ -56,6 +58,7 @@ export default function Timer({ quotes }) {
          const newRandomQuote = quotes[randomIndex];
 
          setRandomQuote(newRandomQuote);
+         setQuoteVisible(true); // Show the quote when the timer completes
       }
    }, [secondsLeft, quotes]);
 
@@ -69,9 +72,9 @@ export default function Timer({ quotes }) {
             <div className="my-4 task-top text-white justify-content-start d-flex w-100">
                <h1 className="mx-4 text-white">{state.task.text}</h1>
             </div>
-            {randomQuote && (
-               <div>
-                  <p>
+            {randomQuote && quoteVisible && (
+               <div className="d-flex justify-content-center">
+                  <p className="quote-div">
                      "{randomQuote.text}" - {randomQuote.byName}
                   </p>
                </div>

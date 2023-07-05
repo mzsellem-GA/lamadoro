@@ -10,3 +10,13 @@
 .rotate-animation {
     animation: rotate 2s linear infinite; /* Adjust the animation duration as needed */
 }
+
+.quote-div {
+    color: #172627;
+    background-color: rgb(255, 255, 255, 0.05);
+    color: white;
+    margin: 15px;
+    border-radius: 20px;
+    padding: 20px;
+    width: 600px;
+}
